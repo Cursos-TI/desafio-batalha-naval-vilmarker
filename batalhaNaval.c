@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define TAM 10
 
 // Desafio Batalha Naval - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
@@ -36,5 +37,40 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+     char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+    int tabuleiro[TAM][TAM] = {0}; // Inicializa o tabuleiro com zeros
+
+    // Colocar o primeiro navio nas coordenadas especificadas
+    int linhaNavio1 = 3; // Linha 3
+    int colunaInicio1 = 3; // Coluna 3 (índice 2)
+    
+    for (int j = colunaInicio1; j < colunaInicio1 + 3; j++) {
+        tabuleiro[linhaNavio1][j] = 3; // Marca as posições do primeiro navio com o número 3
+    }
+
+    // Colocar o segundo navio nas coordenadas especificadas (coluna B, linhas 5, 6 e 7)
+    int colunaB = 1; // Coluna B (índice 1)
+    for (int i = 5; i < 8; i++) {
+        tabuleiro[i][colunaB] = 3; // Marca as posições do segundo navio com o número 3
+    }
+
+    // Imprimir letras das colunas
+    printf("## JOGO BATALHA NAVAL ##\n"); // Espaço para o cabeçalho
+    for (int j = 0; j < TAM; j++) {
+        printf("%c ", linha[j]); // Imprime as letras de A a J
+    }
+    printf("\n");
+
+    // Imprimir o tabuleiro com números das linhas
+    for (int i = 0; i < TAM; i++) {
+        printf("%d ", i + 1); // Imprime o número da linha começando de 1
+        for (int j = 0; j < TAM; j++) {
+            printf("%d ", tabuleiro[i][j]); // Imprime o valor do tabuleiro
+        }
+        printf("\n"); // Nova linha após cada linha do tabuleiro
+    }
+
     return 0;
 }
+
+
